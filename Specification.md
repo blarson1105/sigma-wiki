@@ -46,7 +46,7 @@ A definition that can consist of two different data structures - lists and maps.
 
 ### Lists
 
-The lists contain strings that are applied to the full log message and are logically linked with an 'OR'y.
+The lists contain strings that are applied to the full log message and are linked with a logical 'OR'.
 
 Example:
 
@@ -57,11 +57,7 @@ detection:
     - svchost.exe -n evil
 ```
 
-This example results in the following search expression:
-
-```
-EvilService OR "svchost.exe -n evil"
-```
+Matches on 'EvilService' **or** 'svchost.exe -n evil'
 
 ### Maps
 
@@ -79,11 +75,19 @@ detection:
 condition: selection
 ```
 
-Splunk Search (implicit AND):
+Matches on Eventlog 'Security' **and** ( Event ID 517 **or** Event ID 1102 ) 
 
 ```
-EventLog=Security ( EventID=517 OR EventID=1102 )
+detection:
+   selection:
+      - EventLog: Security
+        EventID: 4769
+        TicketOptions: '0x40810000'
+        TicketEncryption: '0x17'
+condition: selection
 ```
+
+Matches on Eventlog 'Security' **and** Event ID 4679 **and** TicketOptions 0x40810000 **and** TicketEncryption 0x17 
 
 ### TimeFrame
 
