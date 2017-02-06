@@ -182,22 +182,4 @@ A rough guideline would be:
 
 ## Placeholders
 
-
-
-## Examples
-
-```
-title: Eventlog Cleared
-description: Some threat groups tend to delete the local 'Security'' Eventlog using certain utitlities
-detection:
-    selection:
-        - EventLog: Security
-          EventID:
-              - 517
-              - 1102
-    condition: selection
-falsepositives:
-    - Rollout of log collection agents (the setup routine often includes a reset of the local Eventlog)
-    - System provisioning (system reset before the golden image creation)
-level: 70
-```
+/ not yet defined /
