@@ -8,14 +8,15 @@ status [optional]
 description [optional]
 reference [optional]
 detection
-  {search-identifier} [optional]
-    {string-list} [optional]
-    {field: value} [optional]
-  ...
-  timeframe [optional]
-  condition
+      {search-identifier} [optional]
+      {string-list} [optional]
+      {field: value} [optional]
+   ...
+   timeframe [optional]
+   condition
 falsepositives [optional]
 level [optional]
+[arbitrary custom fields]
 ```
 
 ## Title
