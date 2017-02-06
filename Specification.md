@@ -96,11 +96,11 @@ A relative time frame definition using the typical abbreviations for day, hour, 
 Examples:
 
 ```
-15s
-30m
-12h
-7d
-3M
+15s  (15 seconds)
+30m  (30 minutes)
+12h  (12 hours)
+7d   (7 days)
+3M   (3 months)
 ```
 
 Note: The time frame is often a manual setting that has to be defined within the SIEM system and is not part of the generated query.
