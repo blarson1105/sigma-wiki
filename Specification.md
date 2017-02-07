@@ -1,4 +1,4 @@
-# Specification
+# Structure
 
 The rules consist of a few required sections and several optional ones.
 
@@ -18,6 +18,8 @@ falsepositives [optional]
 level [optional]
 [arbitrary custom fields]
 ```
+
+# Components
 
 ## Title
 
