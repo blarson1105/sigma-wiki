@@ -1,5 +1,3 @@
-# Examples
-
 A very simple example is the 'Eventlog Cleared' signature. I describes the following idea:
 
 * From the Windows Eventlog 'Security'
