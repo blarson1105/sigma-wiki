@@ -189,4 +189,16 @@ A rough guideline would be:
 
 ## Placeholders
 
-/ not yet defined /
+Placeholders can be used to select a set of elements that can be expanded during conversion. Placeholders map a an identifier to a user defined value that can be set in config files for an automatic replacement during conversion runs. Placeholders are meaningful identifiers that users can easily expand themselves.   
+
+Examples for placeholders:
+
+* ```%Administrators%``` - Administrative user accounts
+* ```%JumpServers%``` - Server systems used as jump servers
+
+Some SIEM systems allow using so-called "tags" or "search macros" in queries and can integrate Sigma rules with placeholders directly. Others expand the placeholders values to wildcard strings or regular expressions.
+
+Examples for conversions:
+
+* Splunk > ```AccountName: %Administrators%``` convert to ```tag=Administrators```
+* Elastic Search > ```SourceWorkstation: %JumpServers%``` convert to ```"SourceWorkstation": SRV110[12]```
