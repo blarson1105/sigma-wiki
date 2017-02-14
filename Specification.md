@@ -179,15 +179,12 @@ A list of known false positives that may occur.
 
 ## Level
 
-A score between 0 and 100 to define the degree of likelyhood that generated events are actually incidents.
+The level contains one of four string values. It serves as a guideline for using the signature and a way to deliver matching events.
 
-A rough guideline would be:
-
-- 20 : Interesting event but less likely that it's actually an incident. A security analyst has to review the events and spot anomalies or suspcious indicators. Use this in a dashboard panel, maybe in form of a chart.
-- 40 : Interesting event, that shouldn't trigger too often. A security analyst has to review the events and spot anomalies or suspcious indicators. List the events in a dashboard panel for manual review.
-- 60 : Relevant event that should be reviewed manually on a more frequent basis. A security analyst has to review the events and spot anomalies or suspcious indicators. List the events in a dashboard panel for manual review.
-- 80 : Relevant event that should trigger an internal alert and has to be reviewed immediately.
-- 100 : Highly relevant event that triggers an internal alert and causes external notifications (eMail, SMS, ticket). Events are clear matches with no known false positives.    
+- low : Interesting event but less likely that it's actually an incident. A security analyst has to review the events and spot anomalies or suspicious indicators. Use this in a dashboard panel, maybe in form of a chart.
+- medium : Relevant event that should be reviewed manually on a more frequent basis. A security analyst has to review the events and spot anomalies or suspicious indicators. List the events in a dashboard panel for manual review.
+- high : Relevant event that should trigger an internal alert and has to be reviewed as quickly as possible.
+- critical : Highly relevant event that triggers an internal alert and causes external notifications (eMail, SMS, ticket). Events are clear matches with no known false positives.    
 
 ## Placeholders
 
