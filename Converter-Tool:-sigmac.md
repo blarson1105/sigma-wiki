@@ -22,7 +22,8 @@ Addition of a target format is done by development of a backend class. A backend
 2. Parsing of Condition
 3. Internal representation of condition as parse tree
 4. Attachment of definitions into corresponding parse tree nodes
-5. Translation of parse tree into target format (backend classes)
+5. Translation of field and log source identifiers into target names
+6. Translation of parse tree into target format (backend classes)
 
 ## Parse Tree Node Types
 tbd
