@@ -130,15 +130,12 @@ The condition is the most complex part of the specification and will be subject 
 
 - Pipe
 
-  ```expression1 | expression2```
+  ```search_expression | aggregation_expression```
 
-  A pipe indicates that the result of search *expression1* is:
+  A pipe indicates that the result of search *expression1* is aggregated by aggregation *expression2* and possibly
+  compared with a value
 
-  - filtered by search *expression2* (equivalent to logical *and*)
-  - aggregated by aggregation *expression2* and possibly compared with a value
-
-  The first expression must be a search expression that may be followed by an arbitrary number of filtering search
-  expressions and finally followed by an aggregation expression with a condition.
+  The first expression must be a search expression that is followed by an aggregation expression with a condition.
 
 - Brackets
 
