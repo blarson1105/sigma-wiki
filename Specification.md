@@ -6,7 +6,14 @@ The rules consist of a few required sections and several optional ones.
 title
 status [optional]
 description [optional]
+author [optional]
 reference [optional]
+logsource
+   category [optional]
+   product [optional]
+   service [optional]
+   definition [optional]
+   ...
 detection
       {search-identifier} [optional]
       {string-list} [optional]
@@ -16,6 +23,7 @@ detection
    condition
 falsepositives [optional]
 level [optional]
+...
 [arbitrary custom fields]
 ```
 
@@ -25,7 +33,7 @@ level [optional]
 
 A brief title for the rule that should contain what the rules is supposed to detect (max. 256 characters)
 
-## Status
+## Status (optional)
 
 Declares the status of the rule:
 
@@ -34,9 +42,35 @@ Declares the status of the rule:
 - experimental: an experimental rule that could lead to false results or be noisy, but could also identify interesting
   events.
 
-## Description
+## Description (optional)
 
 A short description of the rule and the malicious activity that can be detected (max. 65,535 characters)
+
+## Author (optional)
+
+Creator of the rule.
+
+## Reference (optional)
+
+A reference to the source that the rule was derived from. This could be a blog article, technical paper, presentation or even a tweet. 
+
+## Log Source
+
+This section describes the log data on which the detection is meant to be applied to. It describes the log source, the platform, the application and the type that is required in detection. 
+
+It consists of three attributes that are evaluated automatically by the converters and an arbitrary number of optional elements. We recommend using a "definition" value in cases in which further explication is necessary.    
+
+* category - examples: firewall, web, antivirus
+* product - examples: windows, apache, check point fw1
+* service - examples: sshd, applocker
+
+The "category" value is used to select all log files written by a certain group of products, like firewalls or web server logs. The automatic conversion will use the keyword as a selector for multiple indices. 
+
+The "product" value is used to select all log outputs of a certain product, e.g. all Windows Eventlog types including "Security", "System", "Application" and the new log types like "AppLocker" and "Windows Defender".
+
+Use the "service" value to select only a subset of a product's logs, like the "sshd" on Linux or the "Security" Eventlog on Windows systems. 
+
+The "definition" can be used to describe the log source, including some information on the log verbosity level or configurations that have to be applied. It is not automatically evaluated by the converters but gives useful advice to readers on how to configure the source to provide the necessary events used in the detection.   
 
 ## Detection
 
