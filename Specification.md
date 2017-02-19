@@ -86,7 +86,7 @@ A definition that can consist of two different data structures - lists and maps.
 
 The lists contain strings that are applied to the full log message and are linked with a logical 'OR'.
 
-Example:
+Example: Matches on 'EvilService' **or** 'svchost.exe -n evil'
 
 ```
 detection:
@@ -95,13 +95,13 @@ detection:
     - svchost.exe -n evil
 ```
 
-Matches on 'EvilService' **or** 'svchost.exe -n evil'
-
 ### Maps
 
 Maps (or dictionaries) consist of key/value pairs, in which the key is a field in the log data and the value a string or integer value. Lists of maps are joined with a logical 'OR'. All elements of a map are joined with a logical 'AND'.
 
 Examples:
+
+Matches on Eventlog 'Security' **and** ( Event ID 517 **or** Event ID 1102 ) 
 
 ```
 detection:
@@ -113,7 +113,7 @@ detection:
 condition: selection
 ```
 
-Matches on Eventlog 'Security' **and** ( Event ID 517 **or** Event ID 1102 ) 
+Matches on Eventlog 'Security' **and** Event ID 4679 **and** TicketOptions 0x40810000 **and** TicketEncryption 0x17 
 
 ```
 detection:
@@ -125,7 +125,15 @@ detection:
 condition: selection
 ```
 
-Matches on Eventlog 'Security' **and** Event ID 4679 **and** TicketOptions 0x40810000 **and** TicketEncryption 0x17 
+### Special Field Values
+
+There are special field values that can be used.
+
+* An empty value is defined with ```''```
+* A null value is defined with ```(null)```
+* An arbitrary value except null or empty is defined with ```(any)```
+
+The application of these values depends on the target SIEM system.  
 
 ### TimeFrame
 
