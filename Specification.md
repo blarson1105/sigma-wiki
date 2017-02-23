@@ -15,9 +15,9 @@ logsource
    definition [optional]
    ...
 detection
-      {search-identifier} [optional]
-      {string-list} [optional]
-      {field: value} [optional]
+   {search-identifier} [optional]
+   {string-list} [optional]
+   {field: value} [optional]
    ...
    timeframe [optional]
    condition
