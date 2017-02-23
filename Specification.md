@@ -16,8 +16,8 @@ logsource
    ...
 detection
    {search-identifier} [optional]
-   {string-list} [optional]
-   {field: value} [optional]
+      {string-list} [optional]
+      {field: value} [optional]
    ...
    timeframe [optional]
    condition
