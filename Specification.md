@@ -29,6 +29,7 @@ level [optional]
 
 # Schema
 
+## YML
 ```
 type:    map
 mapping:
@@ -75,6 +76,10 @@ mapping:
     type:      str
     pattern:   /^(low|medium|high|critical)$/
 ```
+
+## Image
+
+![sigma_schema](https://github.com/Neo23x0/sigma/blob/master/images/Sigma_Schema.png)
 
 # Components
 
