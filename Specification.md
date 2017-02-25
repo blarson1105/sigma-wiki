@@ -27,6 +27,55 @@ level [optional]
 [arbitrary custom fields]
 ```
 
+# Schema
+
+```
+type:    map
+mapping:
+ "title":
+    type:      str
+    required:  yes
+ "status":
+    type:      str
+    pattern:   /^(stable|testing|experimental)$/
+ "description":
+    type:      str
+ "author":
+    type:      str
+ "reference":
+    type:      str
+ "logsource":
+    type:      seq
+    required:  yes
+    sequence:
+      - type:    map
+        mapping:
+         "category":
+            type:      str
+         "product":
+            type:      str
+         "service":
+            type:      str
+         "definition":
+            type:      str
+ "detection":
+    type:      seq
+    required:  yes
+    sequence:
+      - type:    map
+        mapping:
+         "timeframe":
+            type:      str
+            pattern:   /^[0-9]+(dmhdMY)$/
+         "condition":
+            type:      str
+ "falsepositives":
+    type:      str
+ "level":
+    type:      str
+    pattern:   /^(low|medium|high|critical)$/
+```
+
 # Components
 
 ## Title
