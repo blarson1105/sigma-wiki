@@ -36,6 +36,7 @@ mapping:
  "title":
     type:      str
     required:  yes
+    length:    { max: 256, min: 1 }
  "status":
     type:      str
     pattern:   /^(stable|testing|experimental)$/
