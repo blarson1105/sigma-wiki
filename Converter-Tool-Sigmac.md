@@ -14,11 +14,38 @@ fieldnames:
   sigma_fieldname: target_fieldname
 logsources:
   sigma_logsource:
-    index: target_indexname
+    category: ...
+    product: ...
+    service: ...
+    index:
+      - target_indexname1
+      - target_indexname2
     conditions:
       field1: value1
       field2: value2
 ```
+
+Each log source definition must contain at least one category, product or service element that corresponds to the same fields in the logsources part of sigma rules. If more than one field is given, all must match (AND).
+
+The *index* field can contain a string or a list of strings. They a converted to the target expression language in a way that the rule is searched in all given index patterns.
+
+The conditions part can be used to define *field: value* conditions if only a subset of the given indices is relevant. All fields are linked with logical AND and the resulting expression is also lined with AND against the expression generated from the sigma rule.
+
+Example: a logstash configuration passes all Windows logs in one index. For Sysmon only events that match *EventLog:"Microsoft-Windows-Sysmon" are relevant. The config looks as follows:
+
+```
+...
+logsources:
+  sysmon:
+    product: sysmon
+    index: logstash-windows-*
+    conditions:
+      EventLog: Microsoft-Windows-Sysmon
+...
+```
+
+If multiple log source definitions match, the result is merged from all matching rules.
+
 # Addition of Target Formats
 Addition of a target format is done by development of a backend class. A backend class gets a parse tree as input and must translate parse tree nodes into the target format.
 
