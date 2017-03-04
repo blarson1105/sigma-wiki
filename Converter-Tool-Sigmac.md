@@ -10,7 +10,7 @@ The configuration file contains mappings for the target environments:
 The mappings are configured in a YAML file with the following format:
 
 ```
-fieldnames:
+fieldmappings:
   sigma_fieldname: target_fieldname
 logsources:
   sigma_logsource:
