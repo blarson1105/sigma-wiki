@@ -137,6 +137,13 @@ A set of search-identifiers that represent searches on log data
 
 A definition that can consist of two different data structures - lists and maps.
 
+### General 
+
+* All values are treated as case-insensitive strings
+* You can use wildcard characters '*' and '?' in strings
+* Regular expressions are case-sensitive by default
+* You don't have to escape characters except the string quotation marks ```'```
+
 ### Lists
 
 The lists contain strings that are applied to the full log message and are linked with a logical 'OR'.
