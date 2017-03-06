@@ -25,6 +25,18 @@ logsources:
       field2: value2
 ```
 
+Field mappings in the *fieldmappings* section are simple *source_field_name:target_field_name* mappings. Use the *fieldlist* backend to determine all field names used by rules. Example:
+
+```
+$ tools/sigmac.py -r -t fieldlist rules/windows/ 2>/dev/null | sort -u
+AccessMask
+CallTrace
+CommandLine
+[...]
+TicketOptions
+Type
+```
+
 Each log source definition must contain at least one category, product or service element that corresponds to the same fields in the logsources part of sigma rules. If more than one field is given, all must match (AND).
 
 The *index* field can contain a string or a list of strings. They a converted to the target expression language in a way that the rule is searched in all given index patterns.
