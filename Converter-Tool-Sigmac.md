@@ -62,6 +62,27 @@ If multiple log source definitions match, the result is merged from all matching
 * and (default): merge all conditions with logical AND.
 * or: merge all conditions with logical OR.
 
+This enables to define logsources hierarchically, e.g.:
+
+```
+logsources:
+  windows:
+    product: windows
+    index: logstash-windows-*
+  windows-application:
+    product: windows
+    service: application
+    conditions:
+      EventLog: Application
+  windows-security:
+    product: windows
+    service: security
+    conditions:
+      EventLog: Security
+```
+
+Log source windows configures an index name. Log sources windows-application and windows-security define additional conditions for matching events in the windows indices.
+
 # Addition of Target Formats
 Addition of a target format is done by development of a backend class. A backend class gets a parse tree as input and must translate parse tree nodes into the target format.
 
