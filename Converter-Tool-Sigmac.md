@@ -23,6 +23,7 @@ logsources:
     conditions:
       field1: value1
       field2: value2
+logsourcemerging: and/or
 ```
 
 Field mappings in the *fieldmappings* section are simple *source_field_name:target_field_name* mappings. Use the *fieldlist* backend to determine all field names used by rules. Example:
@@ -56,7 +57,10 @@ logsources:
 ...
 ```
 
-If multiple log source definitions match, the result is merged from all matching rules.
+If multiple log source definitions match, the result is merged from all matching rules. The parameter *logsourcemerging* determines how conditions are merged. The following methods are supported:
+
+* and (default): merge all conditions with logical AND.
+* or: merge all conditions with logical OR.
 
 # Addition of Target Formats
 Addition of a target format is done by development of a backend class. A backend class gets a parse tree as input and must translate parse tree nodes into the target format.
