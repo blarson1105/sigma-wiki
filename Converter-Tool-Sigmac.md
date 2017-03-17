@@ -2,10 +2,11 @@
 
 The configuration file contains mappings for the target environments:
 
-* between generic Sigma field names and these used in the target
+* between generic Sigma field names and those used in the target environment
 * between log source identifiers from Sigma and...
   * ...index names from target
   * ...conditions that should be added to generated expression (e.g. EventLog: Microsoft-Windows-Sysmon) with AND.
+* between placeholders in sigma rules and expressions that describe that elements in the target environment
 
 The mappings are configured in a YAML file with the following format:
 
@@ -26,6 +27,8 @@ logsources:
 logsourcemerging: and/or
 ```
 
+## Field Mappings
+
 Field mappings in the *fieldmappings* section are simple *source_field_name:target_field_name* mappings. Use the *fieldlist* backend to determine all field names used by rules. Example:
 
 ```
@@ -37,6 +40,8 @@ CommandLine
 TicketOptions
 Type
 ```
+
+## Log Source Mappings
 
 Each log source definition must contain at least one category, product or service element that corresponds to the same fields in the logsources part of sigma rules. If more than one field is given, all must match (AND).
 
@@ -82,6 +87,10 @@ logsources:
 ```
 
 Log source windows configures an index name. Log sources windows-application and windows-security define additional conditions for matching events in the windows indices.
+
+## Placeholder Mappings
+
+Not available yet
 
 # Addition of Target Formats
 Addition of a target format is done by development of a backend class. A backend class gets a parse tree as input and must translate parse tree nodes into the target format.
