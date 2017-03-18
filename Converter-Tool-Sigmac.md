@@ -6,7 +6,7 @@ The configuration file contains mappings for the target environments:
 * between log source identifiers from Sigma and...
   * ...index names from target
   * ...conditions that should be added to generated expression (e.g. EventLog: Microsoft-Windows-Sysmon) with AND.
-* between placeholders in sigma rules and expressions that describe that elements in the target environment
+* between placeholders in sigma rules and lists that describe their values in the target environment
 
 The mappings are configured in a YAML file with the following format:
 
@@ -25,6 +25,11 @@ logsources:
       field1: value1
       field2: value2
 logsourcemerging: and/or
+placeholders:
+  name1:
+    - value1
+    - value2
+  name2: value
 ```
 
 ## Field Mappings
@@ -90,7 +95,7 @@ Log source windows configures an index name. Log sources windows-application and
 
 ## Placeholder Mappings
 
-Not available yet
+Rules can contain placeholders in values that are replaced with values configured in the *placeholders* section of a configuration file. This section contains a map where the keys correspond to the placeholder names and values can be single values which are used as replacement for the placeholder or lists of values. Latter case causes that conditions are expanded with an OR condition per value.
 
 # Addition of Target Formats
 Addition of a target format is done by development of a backend class. A backend class gets a parse tree as input and must translate parse tree nodes into the target format.
