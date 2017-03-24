@@ -12,7 +12,15 @@ The mappings are configured in a YAML file with the following format:
 
 ```
 fieldmappings:
-  sigma_fieldname: target_fieldname
+  sigma_fieldname_1: target_fieldname   # Simple mapping
+  sigma_fieldname_2:                    # Multiple mappings
+    - target_fieldname_1
+    - target_fieldname_2
+  sigma_fieldname_3:                    # Conditional mapping
+    field1=value1:
+    field2=value2:
+      - target_fieldname_1
+      - target_fieldname_2
 logsources:
   sigma_logsource:
     category: ...
@@ -34,7 +42,25 @@ placeholders:
 
 ## Field Mappings
 
-Field mappings in the *fieldmappings* section are simple *source_field_name:target_field_name* mappings. Use the *fieldlist* backend to determine all field names used by rules. Example:
+Field mappings in the *fieldmappings* section map between Sigma field names and field names used in target SIEM systems. There are three types of field mappings:
+
+* Simple: the source field name corresponds to exactly one target field name given as string. Exmaple: `EventID: EventCode` for translation of Windows event identifiers between Sigma and Splunk.
+* Multiple: a source field corresponds to a list of target fields. Sigmac generates an OR condition that covers all field names. This can be useful in configuration change and migration scenarios, when field names change. A further use case is when the SIEM normalizes one source field name into different target field names and the exact rules are unknown.
+* Conditional: a source field is translated to one or multiple target field names depending on values from other fields in specific rules. This is useful in scenarios where the SIEM maps the same Sigma field to different target field names depending on the event or log type, like Logpoint.
+
+While simple and multiple mapping type are quite straightforward, conditional mappings require further explanation. The mapping is provided as map where the keys have the following format:
+
+* field=value: condition that must be fulfilled for execution of the given translation
+* default: mapping that is used if no condition matches.
+
+Sigmac applies conditional mappings as follows:
+
+1. All conditions are mapped against all field:value pairs of the rule. It merges all pairs into one table and is therefore not able to distinguish between different definitions. Matching mappings are collected in a list.
+2. If the list is empty, the default mapping is used.
+3. The result set of target field name mappings is translated into an OR condition, similar to multiple field mappings. If no mapping could be determined, the Sugma field name is used.
+
+
+Use the *fieldlist* backend to determine all field names used by rules. Example:
 
 ```
 $ tools/sigmac.py -r -t fieldlist rules/windows/ 2>/dev/null | sort -u
