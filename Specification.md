@@ -238,7 +238,7 @@ The condition is the most complex part of the specification and will be subject 
 
   ```search_expression | aggregation_expression```
 
-  A pipe indicates that the result of search *expression1* is aggregated by aggregation *expression2* and possibly
+  A pipe indicates that the result of *search_expression* is aggregated by *aggregation_expression* and possibly
   compared with a value
 
   The first expression must be a search expression that is followed by an aggregation expression with a condition.
