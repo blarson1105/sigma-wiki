@@ -254,16 +254,16 @@ The condition is the most complex part of the specification and will be subject 
   agg-function may be:
 
   - count
-  - distcount (count distinct values)
   - min
   - max
   - avg
   - sum
 
+  All aggregation functions except count require a field name as parameter. The count aggregation counts all matching events if no field name is given. With field name it counts the distinct values in this field.
+
   Example: ```count(UserName) by SourceWorkstation > 3```
 
-  The comparison operates on the result values of all aggregation groups or buckets. It is sufficient when one group matches
-  the condition.
+  This comparison counts distinct user names grouped by SourceWorkstations.
 
 Operator Precedence (least to most binding)
 
