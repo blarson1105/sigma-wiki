@@ -265,6 +265,13 @@ The condition is the most complex part of the specification and will be subject 
 
   This comparison counts distinct user names grouped by SourceWorkstations.
 
+
+- Near aggregation expression
+
+  near *search-id-1* [ [ and *search-id-2* | and not *search-id-3* ] ... ] within *timeframe*
+
+  This expression generates (if supported by the target system and backend) a query that recognizes *search_expression* (primary event) if the given conditions are or are not in the temporal context of the primary event within the given time frame.
+
 Operator Precedence (least to most binding)
 
 - |
