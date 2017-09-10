@@ -21,6 +21,7 @@ detection
    ...
    timeframe [optional]
    condition
+fields [optional]
 falsepositives [optional]
 level [optional]
 ...
@@ -71,6 +72,10 @@ mapping:
             pattern:   /^[0-9]+(dmhdMY)$/
          "condition":
             type:      str
+ "fields":
+    type:      seq
+    sequence:
+      - type:   str
  "falsepositives":
     type:      str
  "level":
@@ -282,6 +287,10 @@ Operator Precedence (least to most binding)
 - ( expression )
 
 If multiple conditions are given, they are logically linked with OR.
+
+## Fields
+
+A list of log fields that could be interesting in further analysis of the event and should be displayed to the analyst.
 
 ## FalsePositives
 
