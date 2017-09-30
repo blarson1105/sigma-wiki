@@ -33,6 +33,7 @@ logsources:
       field1: value1
       field2: value2
 logsourcemerging: and/or
+defaultindex: indexname
 placeholders:
   name1:
     - value1
@@ -118,6 +119,8 @@ logsources:
 ```
 
 Log source windows configures an index name. Log sources windows-application and windows-security define additional conditions for matching events in the windows indices.
+
+The keyword defaultindex defines a index or index pattern that is used if the above calculation doesn't results in at least one index name.
 
 ## Placeholder Mappings
 
