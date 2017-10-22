@@ -120,7 +120,7 @@ logsources:
 
 Log source windows configures an index name. Log sources windows-application and windows-security define additional conditions for matching events in the windows indices.
 
-The keyword defaultindex defines a index or index pattern that is used if the above calculation doesn't results in at least one index name.
+The keyword defaultindex defines one or multiple index patterns that are used if the above calculation doesn't results in at least one index name.
 
 ## Placeholder Mappings
 
