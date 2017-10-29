@@ -215,6 +215,7 @@ Examples:
 7d   (7 days)
 3M   (3 months)
 ```
+The time frame is defined in the *timeframe* attribute of the *detection* section.
 
 Note: The time frame is often a manual setting that has to be defined within the SIEM system and is not part of the generated query.
 
@@ -273,7 +274,7 @@ The condition is the most complex part of the specification and will be subject 
 
 - Near aggregation expression
 
-  near *search-id-1* [ [ and *search-id-2* | and not *search-id-3* ] ... ] within *timeframe*
+  near *search-id-1* [ [ and *search-id-2* | and not *search-id-3* ] ... ]
 
   This expression generates (if supported by the target system and backend) a query that recognizes *search_expression* (primary event) if the given conditions are or are not in the temporal context of the primary event within the given time frame.
 
