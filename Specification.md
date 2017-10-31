@@ -326,3 +326,20 @@ Splunk
 Elastic Search 
 
 * ```SourceWorkstation: %JumpServers%``` convert to ```"SourceWorkstation": SRV110[12]```
+
+# Rule Collections
+
+A file may contain multiple YAML documents. These can be complete Sigma rules or *action documents*. A YAML document is handled as action document if the `action` attribute on the top level is set to:
+
+* `global`: Defines YAML content that is merged in all following YAML rule documents in this file. Multiple *global* action documents are accumulated.
+** Use case: define metadata and rule parts that are common across all Sigma rules of a collection.
+* `reset`: Reset global YAML content defined by *global* action documents.
+* `repeat`: Repeat generation of previous rule document with merged data from this YAML document.
+** Use case: Small modifications of previously generated rule.
+
+## Example
+A common use case is the definition of multiple Sigma rules for similar events like Windows Security EventID 4688 and Sysmon EventID 1. Both are created for process execution events. A Sigma rule collection for this scenario could contain three documents:
+
+1. A global action document that defines common metadata.
+2. The Security/4688 rule with all event details.
+3. A repeat action document that replaces the logsource and EventID from the rule defined in 2.
