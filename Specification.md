@@ -340,6 +340,12 @@ A file may contain multiple YAML documents. These can be complete Sigma rules or
 ## Example
 A common use case is the definition of multiple Sigma rules for similar events like Windows Security EventID 4688 and Sysmon EventID 1. Both are created for process execution events. A Sigma rule collection for this scenario could contain three documents:
 
+1. A global action document that defines common metadata and detection indicators
+2. A rule that defines Windows Security log source and EventID 4688
+3. A rule that defines Windows Sysmon log source and EventID 1
+
+Alternative solution could be:
+
 1. A global action document that defines common metadata.
 2. The Security/4688 rule with all event details.
 3. A repeat action document that replaces the logsource and EventID from the rule defined in 2.
