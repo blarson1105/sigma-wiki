@@ -77,7 +77,9 @@ mapping:
     sequence:
       - type:   str
  "falsepositives":
-    type:      str
+    type:      seq
+    sequence:
+      - type:   str
  "level":
     type:      str
     pattern:   /^(low|medium|high|critical)$/
