@@ -7,7 +7,7 @@ title
 status [optional]
 description [optional]
 author [optional]
-reference [optional]
+references [optional]
 logsource
    category [optional]
    product [optional]
@@ -45,8 +45,10 @@ mapping:
     type:      str
  "author":
     type:      str
- "reference":
-    type:      str
+ "references":
+    type:      seq
+    sequence:
+        - type: str
  "logsource":
     type:      seq
     required:  yes
