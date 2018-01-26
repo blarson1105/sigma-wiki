@@ -114,9 +114,9 @@ A short description of the rule and the malicious activity that can be detected 
 
 Creator of the rule.
 
-## Reference (optional)
+## References (optional)
 
-A reference to the source that the rule was derived from. This could be a blog article, technical paper, presentation or even a tweet. 
+References to the source that the rule was derived from. These could be blog articles, technical papers, presentations or even tweets.
 
 ## Log Source
 
