@@ -30,61 +30,87 @@ level [optional]
 
 # Schema
 
-## YML
+## Rx YAML
 ```
-type:    map
-mapping:
- "title":
-    type:      str
-    required:  yes
-    length:    { max: 256, min: 1 }
- "status":
-    type:      str
-    pattern:   /^(stable|testing|experimental)$/
- "description":
-    type:      str
- "author":
-    type:      str
- "references":
-    type:      seq
-    sequence:
-        - type: str
- "logsource":
-    type:      seq
-    required:  yes
-    sequence:
-      - type:    map
-        mapping:
-         "category":
-            type:      str
-         "product":
-            type:      str
-         "service":
-            type:      str
-         "definition":
-            type:      str
- "detection":
-    type:      seq
-    required:  yes
-    sequence:
-      - type:    map
-        mapping:
-         "timeframe":
-            type:      str
-            pattern:   /^[0-9]+(dmhdMY)$/
-         "condition":
-            type:      str
- "fields":
-    type:      seq
-    sequence:
-      - type:   str
- "falsepositives":
-    type:      seq
-    sequence:
-      - type:   str
- "level":
-    type:      str
-    pattern:   /^(low|medium|high|critical)$/
+type: //rec
+required:
+    title:
+        type: //str
+        length:
+            min: 1
+            max: 256
+    logsource:
+        type: //rec
+        optional:
+            category: //str
+            product: //str
+            service: //str
+            definition: //str
+    detection:
+        type: //rec
+        required:
+            condition:
+                type: //any
+                of:
+                    - type: //str
+                    - type: //arr
+                      contents: //str
+                      length:
+                          min: 2
+        optional:
+            timeframe: //str
+        rest:
+            type: //any
+            of:
+                - type: //arr
+                  contents: //str
+                - type: //map
+                  values:
+                      type: //any
+                      of:
+                          - type: //str
+                          - type: //arr
+                            contents: //str
+                            length:
+                                min: 2
+optional:
+    status:
+        type: //any
+        of:
+            - type: //str
+              value: stable
+            - type: //str
+              value: testing
+            - type: //str
+              value: experimental
+    description: //str
+    author: //str
+    references:
+        type: //arr
+        contents: //str
+    fields:
+        type: //arr
+        contents: //str
+    falsepositives:
+        type: //any
+        of:
+            - type: //str
+            - type: //arr
+              contents: //str
+              length:
+                  min: 2
+    level:
+        type: //any
+        of:
+            - type: //str
+              value: low
+            - type: //str
+              value: medium
+            - type: //str
+              value: high
+            - type: //str
+              value: critical
+rest: //any
 ```
 
 ## Image
