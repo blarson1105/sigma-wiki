@@ -257,14 +257,29 @@ The condition is the most complex part of the specification and will be subject 
 
   ```keywords1 or keywords2```
 
-- X of search-identifier
+- 1/all of search-identifier
 
-  ```1 of keywords```
-
-  Same as just 'keywords' if keywords are dafined in a list. X may be:
+  Same as just 'keywords' if keywords are defined in a list. X may be:
 
   - 1 (logical or across alternatives)
   - all (logical and across alternatives)
+
+  Example: `all of keywords` means that all items of the list keywords must appear, instead of the default behaviour of any of the listed items.
+
+- 1/all of them
+
+  Logical OR (`1 of them`) or AND (`all of them`) across all defined search identifiers. The search identifiers
+  themselves are logically linked with their default behaviour for maps (AND) and lists (OR).
+
+  Example: `1 of them` means that one of the defined search identifiers must appear.
+
+- 1/all of search-identifier-pattern
+
+  Same as *1/all of them*, but restricted to matching search identifiers. Matching is done with * wildcards (any number of characters) at arbitrary positions in the pattern.
+
+  Examples:
+  - `1 of selection* and keywords`
+  - `any of selection* and not filters`
 
 - Negation with 'not'
 
