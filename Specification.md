@@ -24,6 +24,7 @@ detection
 fields [optional]
 falsepositives [optional]
 level [optional]
+tags [optional]
 ...
 [arbitrary custom fields]
 ```
@@ -110,6 +111,9 @@ optional:
               value: high
             - type: //str
               value: critical
+    tags:
+        type: //arr
+        contents: //str
 rest: //any
 ```
 
@@ -349,7 +353,17 @@ The level contains one of four string values. It serves as a guideline for using
 - low : Interesting event but less likely that it's actually an incident. A security analyst has to review the events and spot anomalies or suspicious indicators. Use this in a dashboard panel, maybe in form of a chart.
 - medium : Relevant event that should be reviewed manually on a more frequent basis. A security analyst has to review the events and spot anomalies or suspicious indicators. List the events in a dashboard panel for manual review.
 - high : Relevant event that should trigger an internal alert and has to be reviewed as quickly as possible.
-- critical : Highly relevant event that triggers an internal alert and causes external notifications (eMail, SMS, ticket). Events are clear matches with no known false positives.    
+- critical : Highly relevant event that triggers an internal alert and causes external notifications (eMail, SMS, ticket). Events are clear matches with no known false positives.
+
+## Tags
+
+A Sigma rule may be categorized with tags. Tags should generally follow this syntax:
+
+* Character set: lower-case letters, underscores and hyphens
+* no spaces
+* Tags are namespaced, the dot is used as separator. e.g. *attack.t1234* refers to technique 1234 in the namespace *attack*. Namespaces may also be nested.
+* Keep tags short, e.g. numeric identifiers instead of long sentences.
+* If applicable, use [predefined tags](../Tags). Feel free to send pull request or issues with proposals for new tags.
 
 ## Placeholders
 
