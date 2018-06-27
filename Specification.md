@@ -230,9 +230,9 @@ condition: selection
 
 There are special field values that can be used.
 
-* An empty value is defined with ```''```
-* A null value is defined with ```(null)```
-* An arbitrary value except null or empty is defined with ```(any)```
+* An empty value is defined with `''`
+* A null value is defined with `null`
+* An arbitrary value except null or empty is defined with `not null`
 
 The application of these values depends on the target SIEM system.  
 
