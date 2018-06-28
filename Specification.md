@@ -232,9 +232,23 @@ There are special field values that can be used.
 
 * An empty value is defined with `''`
 * A null value is defined with `null`
-* An arbitrary value except null or empty is defined with `not null`
+OBSOLETE: An arbitrary value except null or empty is defined with `not null`
 
-The application of these values depends on the target SIEM system.  
+The application of these values depends on the target SIEM system.
+
+To get an expression that say `not null` you have to create another selection and negate it in the condition. 
+
+Example:
+
+```
+detection:
+   selection:
+      EventID: 4738
+   filter:
+      PasswordLastSet: null
+condition:
+   selection and not filter
+```
 
 ### TimeFrame
 
@@ -357,13 +371,13 @@ The level contains one of four string values. It serves as a guideline for using
 
 ## Tags
 
-A Sigma rule may be categorized with tags. Tags should generally follow this syntax:
+A Sigma rule can be categorised with tags. Tags should generally follow this syntax:
 
 * Character set: lower-case letters, underscores and hyphens
 * no spaces
-* Tags are namespaced, the dot is used as separator. e.g. *attack.t1234* refers to technique 1234 in the namespace *attack*. Namespaces may also be nested.
-* Keep tags short, e.g. numeric identifiers instead of long sentences.
-* If applicable, use [predefined tags](../Tags). Feel free to send pull request or issues with proposals for new tags.
+* Tags are namespaced, the dot is used as separator. e.g. *attack.t1234* refers to technique 1234 in the namespace *attack*; Namespaces may also be nested
+* Keep tags short, e.g. numeric identifiers instead of long sentences
+* If applicable, use [predefined tags](../Tags). Feel free to send pull request or issues with proposals for new tags
 
 ## Placeholders
 
