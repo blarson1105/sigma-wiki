@@ -166,7 +166,16 @@ Use the "service" value to select only a subset of a product's logs, like the "s
 
 The "definition" can be used to describe the log source, including some information on the log verbosity level or configurations that have to be applied. It is not automatically evaluated by the converters but gives useful advice to readers on how to configure the source to provide the necessary events used in the detection. 
 
-You can use the values of 'category, 'product' and 'service' to point the converters to a certain index. You could define in the configuration files that the category 'firewall' converts to ```( index=fw1* OR index=asa* )``` during Splunk search conversion or the product 'windows' converts to ```"_index":"logstash-windows*"``` in ElasticSearch queries.    
+You can use the values of 'category, 'product' and 'service' to point the converters to a certain index. You could define in the configuration files that the category 'firewall' converts to ```( index=fw1* OR index=asa* )``` during Splunk search conversion or the product 'windows' converts to ```"_index":"logstash-windows*"``` in ElasticSearch queries.
+
+Instead of referring to particular services, generic log sources may be used, e.g.:
+
+```
+category: process_creation
+product: windows
+```
+
+Instead of definition of multiple rules for Sysmon, Windows Security Auditing and possible product-specific rules.
 
 ## Detection
 
