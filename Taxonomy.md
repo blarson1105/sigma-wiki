@@ -4,7 +4,24 @@ This page defines field names and log sources that should be used to ensure shar
 
 ### Generic
 
-* `category: process_creation`: Defines a process creation event
+#### Process Creation Events
+
+Process creation events can be defined with the generic log source category *process_creation*. The event scope can be further restricted with *product*. Example for a process creation event log source restricted to Windows:
+
+```
+category: process_creation
+product: windows
+```
+
+The field names follow the Sysmon field naming:
+
+* Image
+* CommandLine
+* ParentImage
+* ParentCommandLine
+* Hashes
+* User
+* IntegrityLevel
 
 ### Specific
 
