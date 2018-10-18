@@ -25,7 +25,7 @@ The field names follow the Sysmon field naming:
 
 ### Specific
 
-* `product: windows`: Windows Operating System logs
+* `product: windows`: Windows Operating System logs. The naming of Windows Eventlog attributes is used in Sigma rules.
   * `service: security`: Windows Security Event Log. Some may be covered by [generic log sources](#generic).
   * `service: system`: Windows System Event Log
   * `service: sysmon`: Event Logs created by Sysmon. Some may be covered by [generic log sources](#generic).
