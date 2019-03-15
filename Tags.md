@@ -5,6 +5,7 @@ This page defines some standardized tags that can be used to categorize Sigma ru
 ## Namespaces
 
 * attack: Categorization according to [MITRE ATT&CK](https://attack.mitre.org)
+* car: Link to the corresponding [MITRE Cyber Analytics Repository (CAR)](https://car.mitre.org/)
 
 ### Namespace: attack
 
@@ -24,3 +25,7 @@ Tactics:
 * collection: [Collection](https://attack.mitre.org/wiki/Collection)
 * exfiltration: [Exfiltration](https://attack.mitre.org/wiki/Exfiltration)
 * c2: [Command and Control](https://attack.mitre.org/wiki/Command_and_Control)
+
+### Namespace: car
+
+Use the CAR tag from the [analytics repository](https://car.mitre.org/analytics/) without the prepending `CAR-`. Example tag: `car.2016-04-005`.
