@@ -58,8 +58,7 @@ Sigmac applies conditional mappings as follows:
 
 1. All conditions are mapped against all field:value pairs of the rule. It merges all pairs into one table and is therefore not able to distinguish between different definitions. Matching mappings are collected in a list.
 2. If the list is empty, the default mapping is used.
-3. The result set of target field name mappings is translated into an OR condition, similar to multiple field mappings. If no mapping could be determined, the Sugma field name is used.
-
+3. The result set of target field name mappings is translated into an OR condition, similar to multiple field mappings. If no mapping could be determined, the Sigma field name is used.
 
 Use the *fieldlist* backend to determine all field names used by rules. Example:
 
@@ -100,7 +99,6 @@ If multiple log source definitions match, the result is merged from all matching
 * or: merge all conditions with logical OR.
 
 This enables to define logsources hierarchically, e.g.:
-
 ```
 logsources:
   windows:
@@ -137,6 +135,67 @@ Addition of a target format is done by development of a backend class. A backend
 4. Attachment of definitions into corresponding parse tree nodes
 5. Translation of field and log source identifiers into target names
 6. Translation of parse tree into target format (backend classes)
+
+## Backend Configuration Files
+
+You can also pass backend options from a configuration file, which simplifies the CLI usage.
+
+One can specify both individual backend options (--backend-option) and specify a configuration file as well - in this case, options are merged, and priority is given to the options passed via the CLI.
+
+Sample usages:
+```
+# Backend configuration file (here for Elastalert)
+$ cat backend_config.yml 
+emails: alerts@mydomain.tld
+smtp_host: smtp.google.com
+from_addr: noreply@mydomain.tld
+expo_realert_time: 10m
+
+# Rule to compile
+$ RULE=rules/windows/builtin/win_susp_sam_dump.yml
+
+# Generate an elastalert rule and take options from the configuration file
+$ python3 tools/sigmac $RULE -t elastalert --backend-config backend_config.yml
+alert:
+- email
+description: Detects suspicious SAM dump activity as cause by QuarksPwDump and other
+  password dumpers
+email:
+- alerts@mydomain.tld
+filter:
+- query:
+    query_string:
+      query: (EventID:"16" AND "*\\AppData\\Local\\Temp\\SAM\-*.dmp\ *")
+from_addr: noreply@mydomain.tld
+index: logstash-*
+name: SAM-Dump-to-AppData_0
+priority: 2
+realert:
+  minutes: 0
+smtp_host: smtp.google.com
+type: any
+
+# Override an option from the configuration file via the CLI
+$ python3 tools/sigmac $RULE -t elastalert --backend-config backend_config.yml --backend-option smtp_host=smtp.mailgun.com
+alert:
+- email
+description: Detects suspicious SAM dump activity as cause by QuarksPwDump and other
+  password dumpers
+email:
+- alerts@mydomain.tld
+filter:
+- query:
+    query_string:
+      query: (EventID:"16" AND "*\\AppData\\Local\\Temp\\SAM\-*.dmp\ *")
+from_addr: noreply@mydomain.tld
+index: logstash-*
+name: SAM-Dump-to-AppData_0
+priority: 2
+realert:
+  minutes: 0
+smtp_host: smtp.mailgun.com
+type: any
+```
 
 ## Parse Tree Node Types
 tbd
