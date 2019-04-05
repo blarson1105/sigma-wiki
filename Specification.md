@@ -334,6 +334,7 @@ The condition is the most complex part of the specification and will be subject 
   agg-function may be:
 
   - count
+  - dc (distinct count)
   - min
   - max
   - avg
