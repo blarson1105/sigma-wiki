@@ -11,6 +11,12 @@ The configuration file contains mappings for the target environments:
 The mappings are configured in a YAML file with the following format:
 
 ```
+title: short description of configuration
+order: numeric value
+backends:
+  - backend_1
+  - backend_2
+  - ...
 fieldmappings:
   sigma_fieldname_1: target_fieldname   # Simple mapping
   sigma_fieldname_2:                    # Multiple mappings
@@ -40,6 +46,16 @@ placeholders:
     - value2
   name2: value
 ```
+
+## Metadata
+
+A configuration should contain the following attributes:
+
+* **title**: Short description of configuration shown in list printed by converter on request.
+* **order**: Numeric value that determines allowed order of usage. A configuration *B* can only be applied after another configuration *A* if order of B is higher or equal to order of A. The Sigma converter enforces this. Convention:
+  * 10: Configurations for generic log sources
+  * 20: Backend-specific configuration
+* **backends**: List of backend names. The configuration can't be used with backends not listed here. Don't define for generic configurations.
 
 ## Field Mappings
 
