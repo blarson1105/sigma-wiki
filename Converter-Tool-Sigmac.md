@@ -120,10 +120,6 @@ Log source windows configures an index name. Log sources windows-application and
 
 The keyword defaultindex defines one or multiple index patterns that are used if the above calculation doesn't results in at least one index name.
 
-## Placeholder Mappings
-
-Rules can contain placeholders in values that are replaced with values configured in the *placeholders* section of a configuration file. This section contains a map where the keys correspond to the placeholder names and values can be single values which are used as replacement for the placeholder or lists of values. Latter case causes that conditions are expanded with an OR condition per value.
-
 # Addition of Target Formats
 Addition of a target format is done by development of a backend class. A backend class gets a parse tree as input and must translate parse tree nodes into the target format.
 
