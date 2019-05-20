@@ -158,6 +158,7 @@ Sample usages:
 ```
 # Backend configuration file (here for Elastalert)
 $ cat backend_config.yml 
+alert_methods: email
 emails: alerts@mydomain.tld
 smtp_host: smtp.google.com
 from_addr: noreply@mydomain.tld
