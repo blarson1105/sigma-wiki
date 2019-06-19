@@ -25,6 +25,7 @@ Tactics:
 * collection: [Collection](https://attack.mitre.org/wiki/Collection)
 * exfiltration: [Exfiltration](https://attack.mitre.org/wiki/Exfiltration)
 * c2: [Command and Control](https://attack.mitre.org/wiki/Command_and_Control)
++ impact: [Impact](https://attack.mitre.org/tactics/TA0040/)
 
 ### Namespace: car
 
