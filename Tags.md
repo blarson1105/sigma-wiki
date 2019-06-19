@@ -14,18 +14,18 @@ This page defines some standardized tags that can be used to categorize Sigma ru
 * s*1234*: Refers to [software](https://attack.mitre.org/wiki/Software)
 
 Tactics:
-* initial_access: [Initial Access](https://attack.mitre.org/wiki/Initial_Access)
-* execution: [Execution](https://attack.mitre.org/wiki/Execution)
-* persistence: [Persistence](https://attack.mitre.org/wiki/Persistence)
-* privilege_escalation: [Privilege Escalation](https://attack.mitre.org/wiki/Privilege_Escalation)
-* defense_evasion: [Defense Evasion](https://attack.mitre.org/wiki/Defense_Evasion)
-* credential_access: [Credential Access](https://attack.mitre.org/wiki/Credential_Access)
-* discovery: [Discovery](https://attack.mitre.org/wiki/Discovery)
-* lateral_movement: [Lateral_Movement](https://attack.mitre.org/wiki/Lateral_Movement)
-* collection: [Collection](https://attack.mitre.org/wiki/Collection)
-* exfiltration: [Exfiltration](https://attack.mitre.org/wiki/Exfiltration)
-* c2: [Command and Control](https://attack.mitre.org/wiki/Command_and_Control)
-+ impact: [Impact](https://attack.mitre.org/tactics/TA0040/)
+* initial_access: [Initial Access](https://attack.mitre.org/tactics/TA0001/)
+* execution: [Execution](https://attack.mitre.org/tactics/TA0002/)
+* persistence: [Persistence](https://attack.mitre.org/tactics/TA0003/)
+* privilege_escalation: [Privilege Escalation](https://attack.mitre.org/tactics/TA0004/)
+* defense_evasion: [Defense Evasion](https://attack.mitre.org/tactics/TA0005/)
+* credential_access: [Credential Access](https://attack.mitre.org/tactics/TA0006/)
+* discovery: [Discovery](https://attack.mitre.org/tactics/TA0007/)
+* lateral_movement: [Lateral_Movement](https://attack.mitre.org/tactics/TA0008/)
+* collection: [Collection](https://attack.mitre.org/tactics/TA0009/)
+* exfiltration: [Exfiltration](https://attack.mitre.org/tactics/TA0010/)
+* c2: [Command and Control](https://attack.mitre.org/tactics/TA0011/)
+* impact: [Impact](https://attack.mitre.org/tactics/TA0040/)
 
 ### Namespace: car
 
