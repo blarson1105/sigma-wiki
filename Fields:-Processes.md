@@ -4,8 +4,8 @@
 | proccess_image | string | Process executable (e.g. 'C:\Windows\System32\calc.exe') |
 | proccess_threadid | long | Thread ID (e.g. 4242) |
 | process_action | string | Endpoint solution's action on process (e.g. 'allow', 'block') |
-| process_authhash | string | Process image Authentihash (e.g. 'cfc5937b4db3a1d5718fe144b621d50b0a337854ab3f5e2df152b62627f6fd4a') |
-| process_authhash | string | Process image Authentihash (e.g. 'cfc5937b4db3a1d5718fe144b621d50b0a337854ab3f5e2df152b62627f6fd4a') |
+| process_authentihash | string | Process image Authentihash (e.g. 'cfc5937b4db3a1d5718fe144b621d50b0a337854ab3f5e2df152b62627f6fd4a') |
+| process_authentihash | string | Process image Authentihash (e.g. 'cfc5937b4db3a1d5718fe144b621d50b0a337854ab3f5e2df152b62627f6fd4a') |
 | process_cpuload | float | CPU load consumed by the process (in percent) (e.g. '98.5') |
 | process_cwd | string | The process' working directory (e.g. 'C:\temp') |
 | process_image_company | string | Process image file copyright (e.g. 'Microsoft Corporation') |
