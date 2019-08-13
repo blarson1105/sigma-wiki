@@ -1,3 +1,5 @@
+APLHA - used for discussions. No production use yet. 
+
 | Field | Type | Description |
 |----------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | process_action | string | Endpoint solution's action on process (e.g. 'allow', 'block') |
