@@ -1,4 +1,5 @@
 APLHA - used for discussions. No production use yet. 
+See page "Taxonomy" for information on the current schemes. 
 
 | Field | Type | Description |
 |----------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
