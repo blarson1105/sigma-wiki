@@ -166,7 +166,7 @@ Use the "service" value to select only a subset of a product's logs, like the "s
 
 The "definition" can be used to describe the log source, including some information on the log verbosity level or configurations that have to be applied. It is not automatically evaluated by the converters but gives useful advice to readers on how to configure the source to provide the necessary events used in the detection. 
 
-You can use the values of 'category, 'product' and 'service' to point the converters to a certain index. You could define in the configuration files that the category 'firewall' converts to ```( index=fw1* OR index=asa* )``` during Splunk search conversion or the product 'windows' converts to ```"_index":"logstash-windows*"``` in ElasticSearch queries.
+You can use the values of 'category, 'product' and 'service' to point the converters to a certain index. You could define in the configuration files that the category 'firewall' converts to `( index=fw1* OR index=asa* )` during Splunk search conversion or the product 'windows' converts to `"_index":"logstash-windows*"` in ElasticSearch queries.
 
 Instead of referring to particular services, generic log sources may be used, e.g.:
 
@@ -191,7 +191,7 @@ A definition that can consist of two different data structures - lists and maps.
 * You can use wildcard characters '*' and '?' in strings
 * Wildcards can be escaped with `\`, e.g. `\*`. If some wildcard after a backspace should be searched, the backslash has to be escaped: `\\*`.
 * Regular expressions are case-sensitive by default
-* You don't have to escape characters except the string quotation marks ```'```
+* You don't have to escape characters except the string quotation marks `'`
 
 ### Lists
 
@@ -284,7 +284,7 @@ The condition is the most complex part of the specification and will be subject 
 
 - Logical AND/OR
 
-  ```keywords1 or keywords2```
+  `keywords1 or keywords2`
 
 - 1/all of search-identifier
 
@@ -312,11 +312,11 @@ The condition is the most complex part of the specification and will be subject 
 
 - Negation with 'not'
 
-  ```keywords and not filters```
+  `keywords and not filters`
 
 - Pipe
 
-  ```search_expression | aggregation_expression```
+  `search_expression | aggregation_expression`
 
   A pipe indicates that the result of *search_expression* is aggregated by *aggregation_expression* and possibly
   compared with a value
@@ -325,7 +325,7 @@ The condition is the most complex part of the specification and will be subject 
 
 - Brackets
 
-  ```selection1 and (keywords1 or keywords2)```
+  `selection1 and (keywords1 or keywords2)`
 
 - Aggregation expression
 
@@ -341,7 +341,7 @@ The condition is the most complex part of the specification and will be subject 
 
   All aggregation functions except count require a field name as parameter. The count aggregation counts all matching events if no field name is given. With field name it counts the distinct values in this field.
 
-  Example: ```count(UserName) by SourceWorkstation > 3```
+  Example: `count(UserName) by SourceWorkstation > 3`
 
   This comparison counts distinct user names grouped by SourceWorkstations.
 
@@ -396,8 +396,8 @@ Placeholders can be used to select a set of elements that can be expanded during
 
 ### Examples for placeholders
 
-* ```%Administrators%``` - Administrative user accounts
-* ```%JumpServers%``` - Server systems used as jump servers
+* `%Administrators%` - Administrative user accounts
+* `%JumpServers%` - Server systems used as jump servers
 
 Some SIEM systems allow using so-called "tags" or "search macros" in queries and can integrate Sigma rules with placeholders directly. Others expand the placeholders values to wildcard strings or regular expressions.
 
@@ -405,11 +405,11 @@ Some SIEM systems allow using so-called "tags" or "search macros" in queries and
 
 Splunk
 
-* ```AccountName: %Administrators%``` convert to ```tag=Administrators```
+* `AccountName: %Administrators%` convert to `tag=Administrators`
 
 Elastic Search 
 
-* ```SourceWorkstation: %JumpServers%``` convert to ```"SourceWorkstation": SRV110[12]```
+* `SourceWorkstation: %JumpServers%` convert to `"SourceWorkstation": SRV110[12]`
 
 # Rule Collections
 
