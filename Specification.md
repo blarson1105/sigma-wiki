@@ -261,6 +261,50 @@ condition:
    selection and not filter
 ```
 
+### Value Modifiers
+
+The values contained in Sigma rules can be modified by *value modifiers*. Value modifiers are
+appended after the field name with a pipe character `|` as separator and can also be chained, e.g.
+`fieldname|mod1|mod2: value`. The value modifiers are applied in the given order to the value.
+
+#### Modifier Types
+
+There are two types of value modifiers:
+
+* *Transformation modifiers* transform values into different values, like the two Base64 modifiers
+  mentioned above. Furthermore, this type of modifier is also able to change the logical operation
+  between values. Transformation modifiers are generally backend-agnostic. Means: you can use them
+  with any backend.
+* *Type modifiers* change the type of a value. The value itself might also be changed by such a
+  modifier, but the main purpose is to tell the backend that a value should be handled differently
+  by the backend, e.g. it should be treated as regular expression when the *re* modifier is used.
+  Type modifiers must be supported by the backend.
+
+Generally, value modifiers work on single values and value lists. A value might also expand into
+multiple values.
+
+#### Currently Available Modifiers
+
+##### Transformations
+
+* *contains*: puts `*` wildcards around the values, such that the value is matched anywhere in the
+  field.
+* *all*: Normally, lists of values were linked with *OR* in the generated query. This modifier
+  changes
+  this to *AND*. This is useful if you want to express a command line invocation with different
+  parameters where the order may vary and removes the need for some cumbersome workarounds.
+* *base64*: The value is encoded with Base64.
+* *base64offset*: If a value might appear somewhere in a base64-encoded value the representation
+  might change depending on the position in the overall value. There are three variants for shifts
+  by zero to two bytes and except the first and last byte the encoded values have a static part in
+  the middle that can be recognized.
+
+##### Types
+
+* *re*: value is handled as regular expression by backends. Currently, this is only supported by
+  the Elasticsearch query string backend (*es-qs*). Further (like Splunk) are planned or have
+  to be implemented by contributors with access to the target systems.
+
 ### TimeFrame
 
 A relative time frame definition using the typical abbreviations for day, hour, minute, second.
