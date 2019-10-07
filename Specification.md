@@ -189,7 +189,7 @@ A definition that can consist of two different data structures - lists and maps.
 
 * All values are treated as case-insensitive strings
 * You can use wildcard characters '*' and '?' in strings
-* Wildcards can be escaped with `\`, e.g. `\*`. If some wildcard after a backspace should be searched, the backslash has to be escaped: `\\*`.
+* Wildcards can be escaped with `\`, e.g. `\*`. If some wildcard after a backslash should be searched, the backslash has to be escaped: `\\*`.
 * Regular expressions are case-sensitive by default
 * You don't have to escape characters except the string quotation marks `'`
 
