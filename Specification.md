@@ -86,6 +86,7 @@ optional:
               value: experimental
     description: //str
     author: //str
+    license: //str
     references:
         type: //arr
         contents: //str
@@ -139,6 +140,10 @@ Declares the status of the rule:
 ## Description (optional)
 
 A short description of the rule and the malicious activity that can be detected (max. 65,535 characters)
+
+## License (optional)
+
+License of the rule according the [SPDX ID specification](https://spdx.org/ids).
 
 ## Author (optional)
 
