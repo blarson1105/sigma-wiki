@@ -4,6 +4,10 @@ The rules consist of a few required sections and several optional ones.
 
 ```
 title
+id [optional]
+related [optional]
+   - type {type-identifier}
+     id {rule-id}
 status [optional]
 description [optional]
 author [optional]
