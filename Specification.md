@@ -161,9 +161,13 @@ rest: //any
 
 ## Title
 
+**Attribute:** title
+
 A brief title for the rule that should contain what the rules is supposed to detect (max. 256 characters)
 
 ## Rule Identification
+
+**Attributes:** id, related
 
 Sigma rules should be identified by a globally unique identifier in the *id* attribute. For this
 purpose random generated UUIDs (version 4) are recommended but not mandatory. An example for this
@@ -204,6 +208,8 @@ Currently the following types are defined:
 
 ## Status (optional)
 
+**Attribute:** status
+
 Declares the status of the rule:
 
 - stable: the rule is considered as stable and may be used in production systems or dashboards.
@@ -211,23 +217,34 @@ Declares the status of the rule:
 - experimental: an experimental rule that could lead to false results or be noisy, but could also identify interesting
   events.
 
+
 ## Description (optional)
+
+**Attribute:** description
 
 A short description of the rule and the malicious activity that can be detected (max. 65,535 characters)
 
 ## License (optional)
 
+**Attribute:** license
+
 License of the rule according the [SPDX ID specification](https://spdx.org/ids).
 
 ## Author (optional)
+
+**Attribute**: author
 
 Creator of the rule.
 
 ## References (optional)
 
+**Attribute**: reference
+
 References to the source that the rule was derived from. These could be blog articles, technical papers, presentations or even tweets.
 
 ## Log Source
+
+**Attribute**: logsource
 
 This section describes the log data on which the detection is meant to be applied to. It describes the log source, the platform, the application and the type that is required in detection. 
 
@@ -258,9 +275,11 @@ Instead of definition of multiple rules for Sysmon, Windows Security Auditing an
 
 ## Detection
 
+**Attribute**: detection
+
 A set of search-identifiers that represent searches on log data
 
-## Search-Identifier
+### Search-Identifier
 
 A definition that can consist of two different data structures - lists and maps.
 
@@ -403,6 +422,8 @@ Note: The time frame is often a manual setting that has to be defined within the
 
 ## Condition
 
+**Attribute**: condition
+
 The condition is the most complex part of the specification and will be subject to change over time and arising requirements. In the first release it will support the following expressions.
 
 - Logical AND/OR
@@ -488,13 +509,19 @@ If multiple conditions are given, they are logically linked with OR.
 
 ## Fields
 
+**Attribute**: fields
+
 A list of log fields that could be interesting in further analysis of the event and should be displayed to the analyst.
 
 ## FalsePositives
 
+**Attribute**: falsepositives
+
 A list of known false positives that may occur.
 
 ## Level
+
+**Attribute**: level
 
 The level contains one of four string values. It serves as a guideline for using the signature and a way to deliver matching events.
 
@@ -504,6 +531,8 @@ The level contains one of four string values. It serves as a guideline for using
 - critical : Highly relevant event that triggers an internal alert and causes external notifications (eMail, SMS, ticket). Events are clear matches with no known false positives.
 
 ## Tags
+
+**Attribute**: tags
 
 A Sigma rule can be categorised with tags. Tags should generally follow this syntax:
 
@@ -515,7 +544,10 @@ A Sigma rule can be categorised with tags. Tags should generally follow this syn
 
 ## Placeholders
 
-Placeholders can be used to select a set of elements that can be expanded during conversion. Placeholders map a an identifier to a user defined value that can be set in config files for an automatic replacement during conversion runs. Placeholders are meaningful identifiers that users can easily expand themselves.   
+Placeholders can be used to select a set of elements that can be expanded during conversion.
+Placeholders map a an identifier to a user defined value that can be set in config files for an
+automatic replacement during conversion runs. Placeholders are meaningful identifiers that users can
+easily expand themselves.
 
 ### Examples for placeholders
 
