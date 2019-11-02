@@ -75,6 +75,41 @@ required:
                             length:
                                 min: 2
 optional:
+    id:
+        type: //any
+        of:
+            - type: //str
+              length:
+                  min: 1
+                  max: 64
+    related:
+        type: //arr
+        contents:
+            type: //rec
+            required:
+                type:
+                    type: //any
+                    of:
+                        - type: //str
+                          value: derived
+                        - type: //str
+                          value: obsoletes
+                        - type: //str
+                          value: merged
+                        - type: //str
+                          value: renamed
+                id:
+                    type: //any
+                    of:
+                        - type: //str
+                          length:
+                              min: 1
+                              max: 64
+                        - type: //arr
+                          contents: //str
+                          length:
+                              min: 1
+                              max: 64
     status:
         type: //any
         of:
@@ -127,6 +162,45 @@ rest: //any
 ## Title
 
 A brief title for the rule that should contain what the rules is supposed to detect (max. 256 characters)
+
+## Rule Identification
+
+Sigma rules should be identified by a globally unique identifier in the *id* attribute. For this
+purpose random generated UUIDs (version 4) are recommended but not mandatory. An example for this
+is:
+
+```
+title: Test rule
+id: 929a690e-bef0-4204-a928-ef5e620d6fcc
+```
+
+Rule identifiers can and should change for the following reasons:
+
+* Major changes in the rule. E.g. a different rule logic.
+* Derivation of a new rule from an existing or refinement of a rule in a way that both are kept
+  active.
+* Merge of rules.
+
+To being able to keep track on relationships between detections, Sigma rules may also contain
+references to related rule identifiers in the *related* attribute. This allows to define common
+relationships between detections as follows:
+
+```
+related:
+  - id: 08fbc97d-0a2f-491c-ae21-8ffcfd3174e9
+    type: derived
+  - id: 929a690e-bef0-4204-a928-ef5e620d6fcc
+    type: obsoletes
+```
+
+Currently the following types are defined:
+
+* derived: Rule was derived from the referred rule or rules, which may remain active.
+* obsoletes: Rule obsoletes the referred rule or rules, which aren't used anymore.
+* merged: Rule was merged from the referred rules. The rules may be still existing and in use.
+* renamed: The rule had previously the referred identifier or identifiers but was renamed for any
+  other reason, e.g. from a private naming scheme to UUIDs, to resolve collisions etc. It's not
+  expected that a rule with this id exists anymore.
 
 ## Status (optional)
 
