@@ -529,10 +529,10 @@ A list of known false positives that may occur.
 
 The level contains one of four string values. It serves as a guideline for using the signature and a way to deliver matching events.
 
-- low : Interesting event but less likely that it's actually an incident. A security analyst has to review the events and spot anomalies or suspicious indicators. Use this in a dashboard panel, maybe in form of a chart.
-- medium : Relevant event that should be reviewed manually on a more frequent basis. A security analyst has to review the events and spot anomalies or suspicious indicators. List the events in a dashboard panel for manual review.
-- high : Relevant event that should trigger an internal alert and has to be reviewed as quickly as possible.
-- critical : Highly relevant event that triggers an internal alert and causes external notifications (eMail, SMS, ticket). Events are clear matches with no known false positives.
+- `low` : Interesting event but rarely an incident. Low events are relevant in high numbers or combination with others. A security analyst has to review the events and identify anomalies or suspicious indicators. Use them in a dashboard panel, e.g. in form of a chart.
+- `medium` : Relevant event that should be reviewed manually on a more frequent basis. A security analyst has to review the events and identify anomalies or suspicious indicators. List the events in a dashboard panel for manual review.
+- `high` : Relevant event that should trigger an internal alert and requires a prompt review.
+- `critical` : Highly relevant event that indicates a incident. We recommend critical events for immediate response actions and external notifications (E-Mail, Ticket).
 
 ## Tags
 
