@@ -527,7 +527,7 @@ A list of known false positives that may occur.
 
 **Attribute**: level
 
-The level contains one of four string values. It serves as a guideline for using the signature and a way to deliver matching events.
+The level field contains one of four string values. It describes the criticality of a triggered rule. While `low` and `medium` level events have an informative character, events with `high` and `critical` level should lead to immediate reviews by security analysts. 
 
 - `low` : Interesting event but rarely an incident. Low events are relevant in high numbers or combination with others. A security analyst has to review the events and identify anomalies or suspicious indicators. Use them in a dashboard panel, e.g. in form of a chart.
 - `medium` : Relevant event that should be reviewed manually on a more frequent basis. A security analyst has to review the events and identify anomalies or suspicious indicators. List the events in a dashboard panel for manual review.
