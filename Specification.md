@@ -389,17 +389,21 @@ multiple values.
 
 ##### Transformations
 
-* *contains*: puts `*` wildcards around the values, such that the value is matched anywhere in the
+* `contains`: puts `*` wildcards around the values, such that the value is matched anywhere in the
   field.
-* *all*: Normally, lists of values were linked with *OR* in the generated query. This modifier
+* `all`: Normally, lists of values were linked with *OR* in the generated query. This modifier
   changes
   this to *AND*. This is useful if you want to express a command line invocation with different
   parameters where the order may vary and removes the need for some cumbersome workarounds.
-* *base64*: The value is encoded with Base64.
-* *base64offset*: If a value might appear somewhere in a base64-encoded value the representation
+* `base64`: The value is encoded with Base64.
+* `base64offset`: If a value might appear somewhere in a base64-encoded value the representation
   might change depending on the position in the overall value. There are three variants for shifts
   by zero to two bytes and except the first and last byte the encoded values have a static part in
   the middle that can be recognized.
+* `endswith`: The value is expected at the end of the field's content (replaces e.g. '*\cmd.exe')
+* `startswith`: The value is expected at the beginning of the field's content. (replaces e.g. 'adm*')
+* `utf16le`: transforms value to UTF16-LE encoding, e.g. `cmd` > `63 00 6d 00 64 00`
+* `utf16be`: transforms value to UTF16-BE encoding, e.g. `cmd` > `00 63 00 6d 00 64`
 
 ##### Types
 
