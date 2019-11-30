@@ -405,7 +405,7 @@ multiple values.
 * `utf16le`: transforms value to UTF16-LE encoding, e.g. `cmd` > `63 00 6d 00 64 00`
 * `utf16be`: transforms value to UTF16-BE encoding, e.g. `cmd` > `00 63 00 6d 00 64`
 * `wide`: alias for `utf16le` modifier
-* `utf16`: prepends a [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)  
+* `utf16`: prepends a [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark) and encodes UTF16, e.g. `cmd` > `FF FE 63 00 6d 00 64 00`
 
 ##### Types
 
