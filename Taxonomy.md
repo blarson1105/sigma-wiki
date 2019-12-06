@@ -59,7 +59,17 @@ The field names follow the field names used in [Sysmon](https://docs.microsoft.c
   * `service: access`: Access logs
   * `service: error`: Error logs
 * `category: proxy`
-  * Field Names: [W3C Extended Log File Format](https://www.w3.org/TR/WD-logfile.html)
+  * Field Name according to [W3C Extended Log File Format](https://www.w3.org/TR/WD-logfile.html)
+  * Field names:
+    * c-uri: URL requested by client
+    * c-uri-extension: Extension of file name in requested URL
+    * c-uri-query: Path component of requested URL
+    * c-uri-stem: Stem of the requested URL
+    * c-useragent: the clients user agent.
+    * cs-cookie: Cookie headers sent from client to server.
+    * cs-host: Host header send from client to server
+    * cs-method: HTTP request method
+    * r-dns: Request DNS name
 * `category: firewall`
   * Field Names:
     * `src_ip`, `src_port`, `dst_ip`, `dst_port`, `username`
