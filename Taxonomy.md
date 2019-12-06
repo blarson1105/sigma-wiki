@@ -62,6 +62,6 @@ The field names follow the field names used in [Sysmon](https://docs.microsoft.c
   * Field Names: [W3C Extended Log File Format](https://www.w3.org/TR/WD-logfile.html)
 * `category: firewall`
   * Field Names:
-    * `src_ip`, `src_port`, dst_ip`, `dst_port`
+    * `src_ip`, `src_port`, `dst_ip`, `dst_port`, `username`
 * `category: dns`
 * `category: webserver`
