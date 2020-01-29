@@ -32,7 +32,10 @@ The field names follow the field names used in [Sysmon](https://docs.microsoft.c
 |LogonId|0x3e7|   |
 |TerminalSessionId|0|   |
 |IntegrityLevel|System|   |
-|Hashes|SHA1=5B2EA705524EF2E47B79FBEFC70F7AAFF474C36D|   |
+|imphash|E96A73C7BF33A464C510EDE582318BF2|   |
+|md5|CCF1D1573F175299ADE01C07791A6541|   |
+|sha1|0AE1F9071C5E8FE4A69D3F671937935D242D8A6C|   |
+|sha256|68A15A34C2E28B9B521A240B948634617D72AD619E3950BC6DC769E60A0C3CF2|   |
 |ParentProcessGuid|{c1b49677-6b43-5c78-0000-00107fb77544}|(useless)|
 |ParentProcessId|1724|   |
 |ParentImage|C:\Windows\System32\taskeng.exe|   |
