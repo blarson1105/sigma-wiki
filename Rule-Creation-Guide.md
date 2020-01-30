@@ -151,7 +151,3 @@ The following links lead to web pages that explain the rule creation process wit
 - [A Guide to Generic Log Sources in Sigma](https://patzke.org/a-guide-to-generic-log-sources-in-sigma.html)
 - [Introducing Sigma Value Modifiers](https://patzke.org/introducing-sigma-value-modifiers.html)
 - [Developing Value Modifiers](https://patzke.org/developing-value-modifiers.html)
-
-# Pull Requests
-
-TBD
