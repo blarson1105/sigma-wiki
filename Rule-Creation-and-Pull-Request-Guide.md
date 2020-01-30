@@ -142,6 +142,16 @@ Apply the following guidelines when setting a level:
 - Rules of level `low` and `medium` indicate suspicious activity and policy violations
 - Rules of level `low` have informative character and are often used for compliance or correlation purposes
 
+## External Guides
+
+The following links lead to web pages that explain the rule creation process with screenshots or certain aspects of the expression language.
+
+[How to Write Sigma Rules](https://www.nextron-systems.com/2018/02/10/write-sigma-rules/)
+[Introducing Generic Log Sources in Sigma](https://patzke.org/introducing-generic-log-sources-in-sigma.html)
+[A Guide to Generic Log Sources in Sigma](https://patzke.org/a-guide-to-generic-log-sources-in-sigma.html)
+[Introducing Sigma Value Modifiers](https://patzke.org/introducing-sigma-value-modifiers.html)
+[Developing Value Modifiers](https://patzke.org/developing-value-modifiers.html)
+
 # Pull Requests
 
 TBD
