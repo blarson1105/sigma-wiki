@@ -62,19 +62,27 @@ The field names follow the field names used in [Sysmon](https://docs.microsoft.c
   * `service: access`: Access logs
   * `service: error`: Error logs
 * `category: proxy`
-  * Field Name according to [W3C Extended Log File Format](https://www.w3.org/TR/WD-logfile.html)
+  * Field Name according to [W3C Extended Log File Format](https://www.w3.org/TR/WD-logfile.html). Additional W3 examples can be found from [Microsoft](https://docs.microsoft.com/en-us/windows/win32/http/w3c-logging). 
   * Field names:
     * c-uri: URL requested by client
-    * c-uri-extension: Extension of file name in requested URL
+    * c-uri-extension: Extension of the URL. Commonly is the requested extension of a file name
     * c-uri-query: Path component of requested URL
     * c-uri-stem: Stem of the requested URL
     * c-useragent: the clients user agent.
+    * cs-bytes: Number of bytes sent from the server
     * cs-cookie: Cookie headers sent from client to server.
     * cs-host: Host header send from client to server
     * cs-method: HTTP request method
-    * r-dns: Request DNS name
+    * r-dns: The Domain requested. Additionally is referred to as the Host header or URL Domain. Recommend to use `cs-host` instead of this field
+    * cs-referrer: The referring link or site
+    * cs-version: The HTTP protocol version that the client used
+    * sc-bytes: Number of bytes sent from the client
+    * sc-status: The HTTP status code
+    * src_ip: The IP address of the client that made the request
+    * dst_ip: The IP address of the server
 * `category: firewall`
   * Field Names:
     * `src_ip`, `src_port`, `dst_ip`, `dst_port`, `username`
 * `category: dns`
 * `category: webserver`
+  * Uses the same field names as `category: proxy`
