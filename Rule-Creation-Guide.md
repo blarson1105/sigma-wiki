@@ -136,6 +136,27 @@ expressed in a plain way. On the other hand, some corner cases require additiona
 * Write `\\*` if you want a plain backslash followed by a wildcard `*` as resulting value.
 * Write `\\\*` if you want a plain backslash followed by a plain `*` as resulting value.
 
+### Value Modifiers
+
+Even though it is technically possible to chain value modifiers arbitrary, not all combinations make sense. The following ordering
+rules should be followed:
+
+* Modifiers that add wildcards (`startswith`, `endswith` and `contains`) must not be followed by *encoding modifiers* (`base64`,
+  `base64offset`) because they will also encode the wildcards themself, causing the loss of their special functionality.
+* The value modifier chain must not end with *character set encoding* modifiers (`utf16`, `utf16le`, `utf16be` and `wide`). The
+  resulting values are internally represented as byte sequences instead of text strings and contain null characters which are
+  usually difficult to handle in queries. Therefore the should be followed by an *encoding modifier* (`base64`, `base64offset`)
+* Usually it doesn't makes sense to combine the `re` type modifier with any other modifier.
+* Generally `all` could be put at an arbitrary positon because all modifiers can handle single values as well as lists, but this
+  modifier should be put at the end by convention.
+
+Some common combinations are:
+
+* `|contains|all`: All values in the list are contained in the logged value. This is useful to express command line parameters in
+  an order-agnostic way.
+* `|utf16|base64offset|contains`: value is Base64-encoded UTF16 and might be contained anywhere in a value (e.g. as part of a
+  bigger Base64 value).
+
 ### Fields 
 
 These are the fields that are very helpful in the evaluation of a certain event. For example, it is helpful to know the parent process of a process that contains suspicious strings in its command line parameters. 
