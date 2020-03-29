@@ -113,10 +113,28 @@ The detection section is very flexible but we see common errors or styling issue
 1. If your list consists of a single element, don't use a list (see examples below)
 2. Use only lowercase identifiers
 3. Put comments on lines if you like to (use 2 spaces to separate the expression from your comment) 
-4. Don't use regular expressions unless you really have to (e.g. instead of `Filename|re: '.*\\.exe'` use `Filename|endswith: '\.exe').
+4. Don't use regular expressions unless you really have to (e.g. instead of `Filename|re: '.*\\.exe'` use `Filename|endswith: '\.exe')`.
 5. In new sources use the field names as they appear in the log source, remove spaces and keep hyphens (e.g. `SAM User Account` becomes `SAMUserAccount`)
 6. Don't use SIEM specific logic in your condition
 7. Test your rule before you commit them (we often see broken conditions)
+
+### Backslashes
+
+Backslashes have two functions in Sigma:
+
+* Backslash as plain value
+* Backslash as prefix to escape characters with special meanings: the backslash `\` itself, as well as the wildcards `*` and `?`.
+
+Handling the backslash in this way has the advantage that values that contain single backslashes (the common case) can be
+expressed in a plain way. On the other hand, some corner cases require additional escaping:
+
+* Values that contain only single backslashes can be expressed in the plain way: `C:\Windows\System32\cmd.exe`
+* **Don't** escape single backslashes with a backslash, write the plain value from the previous example instead of `C:\\Windows\\System32\\cmd.exe`.
+* If you want to express two plain backslashes use four: `\\\\foo\bar` results in the value `\\foo\bar`.
+* Write `\\\\` if you want two backslahes
+* Write `\*` if you want a plain wildcard `*` as resulting value.
+* Write `\\*` if you want a plain backslash followed by a wildcard `*` as resulting value.
+* Write `\\\*` if you want a plain backslash followed by a plain `*` as resulting value.
 
 ### Fields 
 
