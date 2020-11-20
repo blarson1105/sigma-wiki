@@ -41,6 +41,11 @@ The field names follow the field names used in [Sysmon](https://docs.microsoft.c
 |ParentImage|C:\Windows\System32\taskeng.exe|   |
 |ParentCommandLine|taskeng.exe {88F94E5C-5DC3-4606-AEFA-BDCA976D6113} S-1-5-18:NT AUTHORITY\System:Service:|   |
 
+#### Other Generic Rule Categories
+
+We align our field names to the field names that [Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) uses.
+You can find all possible field values in the [Sysmon Community Guide](https://github.com/trustedsec/SysmonCommunityGuide/blob/master/Sysmon.md) and on [UltimateWindowsSecurity.com](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx). 
+
 ### Specific
 
 * `product: windows`: Windows Operating System logs. The naming of Windows Eventlog attributes is used in Sigma rules.
