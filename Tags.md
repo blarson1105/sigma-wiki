@@ -24,7 +24,7 @@ Tactics:
 * lateral_movement: [Lateral_Movement](https://attack.mitre.org/tactics/TA0008/)
 * collection: [Collection](https://attack.mitre.org/tactics/TA0009/)
 * exfiltration: [Exfiltration](https://attack.mitre.org/tactics/TA0010/)
-* c2: [Command and Control](https://attack.mitre.org/tactics/TA0011/)
+* command_and_control: [Command and Control](https://attack.mitre.org/tactics/TA0011/)
 * impact: [Impact](https://attack.mitre.org/tactics/TA0040/)
 
 ### Namespace: car
